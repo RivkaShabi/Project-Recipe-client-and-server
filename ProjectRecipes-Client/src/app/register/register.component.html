@@ -1,0 +1,74 @@
+<div style="direction: rtl;text-align: center; color: white;   padding-top: 100px; background-position: center;  text-align: center;padding-top:100px;color:white;;direction: rtl;background-image: url('assets/back.png');background-size: 1540px 725px;height: 725px;;">
+
+<form  [formGroup]="RegisterForm" (ngSubmit)="send()">
+    <div>
+        <label>שם משתמש:</label>
+
+        <input type="text" class="form-control" formControlName="nameUser" [(ngModel)]="nameU" placeholder="ממש מסקרן,אולי אנחנו מכירים?">
+        <div class="txt" *ngIf="RegisterForm.controls.nameUser.touched&&RegisterForm.controls.nameUser.errors" style="color:red">
+            שדה זה חובה
+        </div>
+
+    </div>
+
+
+    <div>
+        <label>כתובת:</label>
+
+        <input type="text" class="form-control" formControlName="adress" placeholder="נודיע לפני שנבוא לביקור:)">
+        <div class="txt" *ngIf="RegisterForm.controls.adress.touched&&RegisterForm.controls.adress.errors" style="color:red">
+            שדה זה חובה
+        </div>
+    </div>
+
+    <div>
+        <label>מייל:</label>
+
+        <input type="text" class="form-control" formControlName="mymail" placeholder="אל דאגה, לא נפציץ לך את תיבת המייל!">
+        <div class="txt"  style="color:red" *ngIf="RegisterForm.controls.mymail.touched&&RegisterForm.controls.mymail.errors?.email">
+            מייל לא תקין
+        </div>
+        <div class="txt"  style="color:red"
+            *ngIf="RegisterForm.controls.mymail.touched&&RegisterForm.controls.mymail.errors?.required">שדה חובהן</div>
+
+    </div>
+    <div>
+        <label>סיסמא:</label>
+
+        <input type="password" placeholder="שומרים פה על סודיות אאהה..." class="form-control" formControlName="password">
+        <div class="txt"  *ngIf="RegisterForm.controls.password.touched&&RegisterForm.controls.password.errors?.required"
+            style="color:red">
+            שדה זה חובה
+        </div>
+        <div class="txt"  *ngIf="RegisterForm.controls.password.touched&&RegisterForm.controls.password.errors?.min"
+            style="color:red">
+            אורך הסיסמא 5 תווים לפחות </div>
+    </div>
+    <div>
+        <label>אימות סיסמא:</label>
+
+        <input placeholder="לא נגלה :)"   class="form-control" type="password" formControlName="twopassword">
+        <div class="txt"  *ngIf="RegisterForm.controls.twopassword.touched&&RegisterForm.controls.twopassword.errors?.required"
+            style="color:red">
+            שדה זה חובה
+        </div>
+        <div class="txt"  *ngIf="RegisterForm.controls.twopassword.touched&&RegisterForm.controls.twopassword.errors?.minLength"
+            style="color:red">
+            אורך הסיסמא 5 תווים לפחות </div>
+    </div>
+  <div class="txt" *ngIf="RegisterForm.controls.twopassword.touched&&RegisterForm.errors?.confirmError&&RegisterForm.errors?.confirmError" style="color:red"> 
+      הסיסמאות אינם תואמות
+     
+
+
+        <!-- &lt;div *ngIf=&quot;myForm.controls.name.touched&amp;&amp;myForm.controls.confirmNa
+        me.touched&amp;&amp;myForm.errors?.confirmError&quot;&gt;
+                {{myForm.errors.confirmError.message}}
+            &lt;/div&gt; -->
+       
+    </div>
+    <br>
+    <input type="submit" style="width: 300px;" class="btn btn-secondary" value="הירשם" [disabled]="!RegisterForm.valid">
+
+</form>
+<div style="direction: rtl;text-align: center;">

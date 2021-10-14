@@ -1,0 +1,15 @@
+.form-control{
+     width: 200px;
+    text-align: center;
+    margin-right: 650px; 
+    background-color:rgb(189, 189, 189);
+    }
+    
+    .body{
+        width: 200px;
+        text-align: center;
+        margin-right: 690px;
+    
+        background-size: 1470px 690px;
+        background-repeat: no-repeat;
+    }

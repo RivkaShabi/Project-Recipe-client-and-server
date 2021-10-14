@@ -1,0 +1,25 @@
+<div class="row" style="padding-right: 50px; color:white;;text-align: right;;direction: rtl;background-repeat: no-repeat; background-size: cover;background-image:  url('assets/eee.jpg');height: 700px;" >
+<div class="col-6" style="padding-top:100px;" >
+  <label> {{r.NameRecipe}}</label>
+  <br>
+  <label><img src="./assets/{{iconCat()}}" style="width:30px;height:30px;"> {{nameCat()}}</label> <br>
+  <label> {{r.PreparationMinutes|calculateHour}}</label><br>
+  <label>דרגת קושי {{f()}}</label><br>
+  <label>רכיבים </label>
+  <div *ngFor="let i of r.ListComponent; let index=index">
+    <img src="./assets/398.png" style="width:25px;height:30px;margin-left : 10px;margin-bottom: 5px;">
+    <label>{{i}}</label>
+  </div>
+  <br>
+  <label>אופן ההכנה </label>
+  <div *ngFor="let i of r.ListPreparation; let index=index">
+    <label> {{index+1}}. {{i}}</label>
+  </div>
+  <br><br>
+  <div *ngIf="userEdit()">
+    <input type="button" value="ערוך" (click)="EditRecipe()">
+  </div></div>
+  <div class="col-6" style="padding-top:150px ;padding-left:20px ;">
+  <img src="./assets/{{r.Image}}" style="width: auto;height: 500px;">
+  </div>
+</div>

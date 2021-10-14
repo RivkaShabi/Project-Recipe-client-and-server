@@ -1,0 +1,71 @@
+<div style=" background-size: cover;background-image:  url('assets/back.png');color: white;text-align: center;direction: rtl;">
+    <div  style="padding-top :100px;">
+        <label>:שם מתכון</label>
+        <input type="text"  class="form-control"[(ngModel)]="addR.NameRecipe">
+    </div>
+
+    <div>
+        <label>:קטגוריה</label>
+        <select class="form-control"  class="form-control"[(ngModel)]="addR.CodeCategory">
+            <option *ngFor="let item of arrCategory" [value]="item.CodeCategory">{{item.NameCategory}}
+            </option>
+        </select>
+    </div>
+
+    <div>
+        <label>:זמן הכנה</label>
+        <input  class="form-control" type="number" min="0" max="5" name="timeValid" [(ngModel)]="addR.PreparationMinutes">
+        <!-- <div *ngIf="!timeValid.valid&&timeValid.touched" style="color: red;">זמן ההכנה חייב להיות גדול מ0 דקות</div> -->
+
+    </div>
+    <div>
+     
+        <label>:דרגת קושי </label>
+        <select class="form-control" [(ngModel)]="addR.LevelOfDifficulty">
+            <option *ngFor="let item of lavelRecipe;let index=index" [value]="item" >{{item}}
+            </option>
+        </select>
+<!-- (click)="addLavel(index+1)" -->
+    </div>
+    <!-- תאריך  -->
+    <!-- ;  trackBy:trackByFn -->
+    <div>
+        <label>:רכיבים</label>
+        <div  *ngFor="let i of arr1; let index=index ;  trackBy:trackByFn">
+            <!-- <div *ngIf="index==0 ||(txt.touched&&i-1!=null)"> -->
+            <input type="text"  class="form-control" [(ngModel)]="arr1[index]" (keypress)="pushArr1()">
+            <!-- </div> -->
+        </div>
+    </div>
+
+
+    <div>
+        <label>הוראות ההכנה:</label>
+        <div *ngFor="let item of arr; let index=index ;  trackBy:trackByFn">
+            <!-- <div *ngIf="index==0 ||(txt.touched&&i-1!=null)">  -->
+            <input type="text"  class="form-control" [(ngModel)]="arr[index]" (keypress)="pushArr()">
+            <!-- </div>  -->
+        </div>
+    </div>
+
+
+
+
+    <!-- <div>
+    <label>הןראות הכנה</label>
+    <div *ngFor="let i of arr1; let index=index">
+        <div *ngIf="index==0||( txt1.touched&&i-1!=null)">
+            <input type="text" #txt1>
+        </div>
+    </div>
+</div> -->
+    <!-- המשתמש הנוכחי -->
+    <div>
+        <label>האם להציג</label>
+        <input type="checkbox"  class="form-check-input" [(ngModel)]="addR.DoDisplay">
+    </div>
+    <input type="button" value="עדכן מתכון" (click)="checkRecipe()"  style="width: 150px;margin-left: 30px;margin-bottom: 50px;" class="btn btn-secondary">
+    <input type="button" value="בטל" (click)="deleteChange()"  style="width: 150px;margin-bottom: 50px;" class="btn btn-secondary">
+
+
+</div>

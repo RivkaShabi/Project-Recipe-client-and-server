@@ -1,0 +1,32 @@
+<div  style="direction: rtl;  background-position: center;  text-align: center;padding-top:100px;color:white;;direction: rtl;background-image: url('assets/Untitled-1.png');background-size: 1470px 690px;background-repeat: no-repeat;;height: 700px;width:1540px ;background-color: black;">
+<br><br><br>
+<form  [formGroup]="loginForm" (ngSubmit)="checkUser(passwordInsert.value,nameInsert.value)">
+    <div>
+        <label style="font-size:25px">שם משתמש:</label>
+        <input type="text" class="p-3 mb-2 bg-light text-dark" class="form-control" #nameInsert formControlName="nameUser">
+        <div *ngIf="loginForm.controls.nameUser.touched&&loginForm.controls.nameUser.errors" style="color:red">
+            שדה זה חובה
+        </div>
+
+    </div>
+    <div>
+        <label style="font-size:25px">סיסמא:</label>
+        <input type="password" class="form-control"   #passwordInsert  formControlName="password">
+        <div *ngIf="loginForm.controls.password.touched&&loginForm.controls.password.errors?.required"
+            style="color:red">
+            שדה זה חובה
+        </div>
+        <div minlength="5" passwordInsert *ngIf="loginForm.controls.password.touched&&loginForm.controls.password.errors?.minLength" style="color:red">
+         אורך הסיסמא 5 תווים לפחות </div>
+
+
+
+
+         
+
+    </div>
+    <input type="submit" style="height: 40px;;width:150px;margin-top: 30px;" class="btn btn-secondary" value="התחבר" [disabled]="!loginForm.valid">
+
+</form>
+</div>
+<router-outlet></router-outlet>

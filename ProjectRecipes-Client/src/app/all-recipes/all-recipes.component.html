@@ -1,0 +1,52 @@
+<br>
+<br>
+<div
+    style="direction: rtl;text-align: right;;padding:50px ; color: white; background-size: cover;background-image:  url('assets/eee.jpg')">
+    <div class="row">
+        <div class="col-1">
+            <label style="margin-top: 15px;">שם מתכון:</label>
+        </div>
+        <div class="col-1">
+            <input [(ngModel)]="name" class="form-control" type="text" >
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-1">
+    <label style="margin-top: 15px;"> קטגוריה:</label></div>
+    <div class="col-1">
+    <select class="form-control" [(ngModel)]="categoryN">
+        <option *ngFor="let item of arrCategory" [value]="item.CodeCategory" (click)="addCat(item) ">
+            {{item.NameCategory}}
+        </option>
+    </select>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-1">
+    <label style="margin-top: 15px;"> זמן הכנה:</label></div>
+    <div class="col-1">
+    <select class="form-control" [(ngModel)]="myTime">
+        <option [value]="30">עד חצי שעה
+        </option>
+        <option [value]="60">עד שעה
+        </option>
+        <option [value]="120">עד שעתיים
+        </option>
+        <option [value]="1000">יותר משעתיים
+        </option>
+    </select>
+</div>
+</div>
+    <br>
+    <input type="button" style="width:190px;margin-right: 120px;" value="סנן" class="btn btn-secondary" (click)="sanen()">
+    <input type="button" style="width:190px;margin-right:20px ;" value="נקה" class="btn btn-secondary"
+        (click)="cleanRecipe()">
+
+    <div class="row">
+        <small-recipe [r]="item" style="padding: 10px;" *ngFor="let item of arr1; let index=index"
+            (click)="nituv(index)">
+        </small-recipe>
+    </div>
+
+</div>
